@@ -1,12 +1,12 @@
 # Critical Reviewer (`critical-reviewer`)
 
-> **An adversarial code reviewer and minimalist red-teaming skill for AI coding assistants.**
+> **An adversarial code reviewer and YAGNI red-teaming skill for AI coding assistants.**
 
 Standard AI code reviewers suffer from two major flaws:
 1. **Self-Sycophancy:** They overlook subtle edge cases, race conditions, and unhandled errors.
 2. **Academic Bloat:** They love suggesting speculative design patterns, factory wrappers, and heavy abstractions for simple problems.
 
-`critical-reviewer` fixes both by combining **adversarial reliability auditing** with **ruthless minimalist engineering** (inspired by the "lazy senior developer" philosophy).
+`critical-reviewer` fixes both by combining **adversarial reliability auditing** with **strict YAGNI principles** (You Aren't Gonna Need It).
 
 ---
 
@@ -18,7 +18,7 @@ When invoked, `critical-reviewer` attacks the `git diff` using two strict lenses
 flowchart TD
     Diff["Git Diff"] --> Reviewer["Critical Reviewer"]
     Reviewer --> A["1. Adversarial Reliability Lens<br/>'How will this break, crash, or leak data in production?'"]
-    Reviewer --> B["2. Minimalist Simplicity Lens<br/>'Is this over-engineered? What is the shortest working diff?'"]
+    Reviewer --> B["2. YAGNI Simplicity Lens<br/>'Is this over-engineered? What is the shortest working diff?'"]
 ```
 
 1. **Adversarial Reliability:**
@@ -27,20 +27,19 @@ flowchart TD
    - Probes external failure blast radius (timeouts, network drops, malformed JSON, swallowed exceptions).
    - Audits security and data integrity (injection, missing auth, sensitive data exposure).
 
-2. **Minimalist Simplicity:**
+2. **YAGNI & Simplicity:**
    - Rejects speculative complexity ("for later" abstractions, wrappers, unused options).
    - Flags dependency bloat (adding a third-party package for something solved by standard library).
    - Enforces the shortest working diff.
 
 ---
 
-## The Pair Programming Trio
+## The Pair Programming Workflow
 
 For maximum leverage in AI-assisted development, pair this skill with an authoring discipline:
 
-1. **`ub-mode` (Uncle Bob / Builder):** Authors the code using strict TDD (Red $\rightarrow$ Green), clean domain boundaries, and type safety.
-2. **`ponytail` (Minimalist):** Keeps changes grounded in the simplest possible implementation.
-3. **`critical-reviewer` (Red-Team Auditor):** Reviews the resulting diff in an isolated context to break it before merge.
+1. **Builder Phase (e.g. `ub-mode`):** Authors the code using strict TDD (Red $\rightarrow$ Green), clean domain boundaries, and type safety.
+2. **Reviewer Phase (`critical-reviewer`):** Reviews the resulting diff against adversarial failure modes and strict YAGNI principles before merge.
 
 ---
 
